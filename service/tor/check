@@ -1,0 +1,7 @@
+#!/bin/bash
+
+(echo authenticate ""; echo "getinfo status/circuit-established"; echo quit) \
+    | nc localhost 9051 \
+    | grep -q '^250-status/circuit-established=1'
+
+exit $?

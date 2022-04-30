@@ -1,2 +1,3 @@
 #!/bin/bash
-tor
+tor --ControlPort 9051
+
