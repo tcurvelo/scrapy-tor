@@ -9,6 +9,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /opt
 
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 ENV http_proxy=http://localhost:3128
 ENV https_proxy=http://localhost:3128
 
