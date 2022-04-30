@@ -7,10 +7,11 @@ RUN apt-get update && apt-get install -y \
     tor \
     && rm -rf /var/lib/apt/lists/*
 
-ENV http_proxy=localhost:3128
-ENV https_proxy=localhost:3128
-
 WORKDIR /opt
+
+ENV http_proxy=http://localhost:3128
+ENV https_proxy=http://localhost:3128
+
 COPY . .
 
 ENTRYPOINT ["./entrypoint.sh"]
