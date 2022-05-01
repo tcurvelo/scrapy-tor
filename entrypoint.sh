@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# set proxies envs for runtime only
+export http_proxy=http://localhost:3128
+export https_proxy=http://localhost:3128
+
 # Start tor and privoxy services
 runsvdir service &
 sleep 1
