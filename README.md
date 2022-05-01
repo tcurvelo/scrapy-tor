@@ -4,13 +4,7 @@ Docker settings for running Scrapy spiders over the Tor network.
 
 ## Usage
 
-Building it:
-
-    ❯ docker build . -t scrapy-tor
-
-Running it:
-
-    ❯ docker run --rm scrapy-tor ./torcheck.py
+    ❯ docker run --rm tcurvelo/scrapy-tor ./torcheck.py
 
 About a minute later you should see:
 
@@ -19,5 +13,22 @@ About a minute later you should see:
 
     ✨ Congratulations. This browser is configured to use Tor. ✨
     ...
+
+### Launching a Tor-enabled Scrapy shell
+
+    docker run -it --rm tcurvelo/scrapy-tor scrapy shell
+
+### Bringing it into your Scrapy project
+
+Simply extend it in your `Dockerfile`:
+
+    FROM tcurvelo/scrapy-tor
+    COPY . .
+    RUN pip install -r requirements.txt
+
+Then build and run:
+
+    ❯ docker build . -t my-scrapy-project
+    ❯ docker run -it my-scrapy-project scrapy crawl my_spider
 
 🕷️🧅
