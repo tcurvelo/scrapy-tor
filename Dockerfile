@@ -5,14 +5,11 @@ RUN apt-get update && apt-get install -y \
     privoxy \
     runit \
     tor \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir scrapy
 
 WORKDIR /opt
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["python"]
+CMD ["./torcheck.py"]

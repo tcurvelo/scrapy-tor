@@ -4,9 +4,11 @@ Docker settings for running Scrapy spiders over the Tor network.
 
 ## Usage
 
-    ❯ docker run --rm tcurvelo/scrapy-tor ./torcheck.py
+### Quick demo
 
-About a minute later you should see:
+    ❯ docker run --rm tcurvelo/scrapy-tor
+
+It will wait for the Tor circuit to be established then request the [Tor Project](https://check.torproject.org)'s check page. About a minute later you'll see its title confirming that it worked:
 
     ...
     2022-04-30 23:46:21 [torcheck] INFO:
